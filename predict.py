@@ -191,7 +191,6 @@ if __name__ == "__main__":
         
         # read imgs from test file
         test_images = load_images_from_folder(data_path)
-        show_images([test_images[0]])
         # start time and open file outputs
         results_file = open(out_path +'/results.txt',"w")
         time_file = open(out_path +'/times.txt',"w")
@@ -218,7 +217,12 @@ if __name__ == "__main__":
                 results_file.write(str(int(label[0])))
             results_file.write('\n')
             results_file.flush()
-            time_file.write(str("{:.2f}".format(Timer)))
+
+            Tumer = str("{:.2f}".format(Timer))
+            if Timer == 0 :
+                time_file.write(str(0.001))
+            else:
+                time_file.write(str("{:.2f}".format(Timer)))
             time_file.write('\n')
             time_file.flush()
 
